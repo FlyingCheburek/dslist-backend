@@ -23,18 +23,28 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
+
+    @Column(nullable = false)
     private String title;
+
+    @Column(nullable = false)
     private Long score;
 
-    @Column(name="game_year")
+    @Column(name = "game_year", nullable = false)
     private Integer year;
+
+    @Column(nullable = false)
     private String genre;
+
+    @Column(nullable = false)
     private String platforms;
+
+    @Column(nullable = false)
     private String imgUrl;
 
-    @Column(columnDefinition="TEXT")
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
 
-    @Column(columnDefinition="TEXT")
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 }
