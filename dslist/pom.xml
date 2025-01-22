@@ -12,7 +12,7 @@
 	<artifactId>dslist</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>dslist</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Projeto criado durante o evento "Intensivão de Java Spring</description>
 	<url/>
 	<licenses>
 		<license/>
