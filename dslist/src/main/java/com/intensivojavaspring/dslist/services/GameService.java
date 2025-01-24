@@ -11,6 +11,7 @@ import com.intensivojavaspring.dslist.dtos.GameMinDTO;
 import com.intensivojavaspring.dslist.repositories.GameRepository;
 
 import com.intensivojavaspring.dslist.entities.Game;
+import com.intensivojavaspring.dslist.projections.GameMinProjection;
 
 @Service
 public class GameService {
@@ -27,5 +28,11 @@ public class GameService {
     public GameDTO findById(final Long id) {
         Game result = gameRepository.findById(id).get();
         return new GameDTO(result);
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> searchByList(final Long listId) {
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
+        return result.stream().map(GameMinDTO::new).collect(Collectors.toList());
     }
 }

@@ -23,7 +23,7 @@ public class GameController {
         return gameService.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}") // --> http://localhost:8080/games/{id}
     public GameDTO findById(@PathVariable final Long id) {
         return gameService.findById(id);
     }
