@@ -32,5 +32,9 @@ public class GameListService {
         List<GameMinProjection> list = gameRepository.searchByList(listId);
         GameMinProjection game = list.remove(srcIndex.intValue());
         list.add(destIndex.intValue(), game);
+        int min = (int)Math.min(srcIndex, destIndex), max = (int)Math.max(srcIndex, destIndex);
+        for (int i = min; i <= max; i++) {
+            gameListRepository.updateBelongingPosition(listId, list.get(i).getId(), i);
+        }
     }
 }
